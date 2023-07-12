@@ -1,13 +1,18 @@
-void bubbleSort(List<int> numbers, int array_size) {
-    int i, j, temp;
-
-    for (i = 0; i < (array_size - 1); i++) {
-      for (j = (array_size - 1); j > i; j--) {
-        if (numbers[j-1] > numbers[j]) {
-          temp = numbers[j-1];
-          numbers[j-1] = numbers[j];
-          numbers[j] = temp;
+fun bubbleSort(data: IntArray) {
+    val dataCount = data.size
+    for (i in 0 until dataCount - 1) {
+        for (j in dataCount - 1 downTo i + 1) {
+            if (data[j] < data[j - 1]) {
+                val temp = data[j]
+                data[j] = data[j - 1]
+                data[j - 1] = temp
+            }
         }
-      }
     }
-  }
+}
+
+fun main() {
+    val data = intArrayOf(8, 5, 4, 9, 3)
+    bubbleSort(data)
+    for (i in data.indices) println(data[i])
+}
